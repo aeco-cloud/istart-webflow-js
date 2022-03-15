@@ -1,6 +1,8 @@
 /* --- START - Global variables - DOM elements --- */
 const STANDARD_YEAR_VALUE = "2022";
 var languageSwitch = document.getElementById("language-switch");
+var yearDropdownValue = document.getElementById("select");
+var yearPlaceholderValue = document.getElementById("year-replace");
 var tableOfContent = document.querySelector("#toc");
 var searchBarInputField = document.querySelectorAll(".search_field");
 var categoryDropdownValue = document.getElementById("category-select");
@@ -48,6 +50,15 @@ const setDelay = (() => {
 //remove anchor link hash from URL and resets year searchParams to standard 2022
 function removeHashFromUrl() {
   var uri = window.location.toString();
+  // var url = new URL(window.location);
+
+  // url.searchParams.has("year")
+  //   ? url.searchParams.set("year", STANDARD_YEAR_VALUE)
+  //   : url.searchParams.append("year", STANDARD_YEAR_VALUE);
+  // url.search = url.searchParams;
+  // url = url.toString();
+  // // append into URL without reloading the page
+  // history.pushState({}, null, url);
 
   if (uri.indexOf("#") > 0) {
     var clean_uri = uri.substring(0, uri.indexOf("#"));
@@ -150,6 +161,39 @@ function renderTocAnchorLinksAndAddActiveClass() {
   // searchForInitialQueryParameters();
 }
 
+//sync all year dropdown values with the url.searchParams('year')
+// function searchForInitialQueryParameters() {
+//   var url = new URL(window.location);
+
+//   if (url.searchParams.has("year")) {
+//     let urlYear = url.searchParams.get("year").toString();
+//     if (urlYear !== yearDropdownValue.value) {
+//       yearDropdownValue.value = urlYear;
+//     }
+//     if (urlYear !== yearPlaceholderValue.innerText) {
+//       yearPlaceholderValue.innerText = urlYear;
+//     }
+//   }
+// }
+
+/* --- END - Function declarations --- */
+
+/* --- START - DOM EventListeners --- */
+
+//Listen for changes in the YEAR dropdown
+//attach year to URL
+// yearDropdownValue.addEventListener("change", (event) => {
+//   var url = new URL(window.location);
+
+//   url.searchParams.has("year")
+//     ? url.searchParams.set("year", event.target.value)
+//     : url.searchParams.append("year", event.target.value);
+//   url.search = url.searchParams;
+//   url = url.toString();
+//   // append into URL without reloading the page
+//   history.pushState({}, null, url);
+// });
+
 //listen to changes in the searchbar and updates table of content
 //The timeout is essential for this to work, because the dom takes a fraction of a second to update
 searchBarInputField.forEach((searchbar) => {
@@ -191,6 +235,7 @@ languageSwitch.addEventListener("click", () => {
 window.addEventListener("load", () => {
   renderTocAnchorLinksAndAddActiveClass();
   categoryDropdownValue.addEventListener("change", () => {
+    console.log(categoryDropdownValue.value);
     removeHashFromUrl();
     submitButton.click();
     setDelay(() => {
@@ -198,5 +243,6 @@ window.addEventListener("load", () => {
     }, 500);
   });
   // searchForInitialQueryParameters();
+  console.log("Dom is loaded");
 });
 /* --- END - DOM EventListeners --- */

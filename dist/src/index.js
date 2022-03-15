@@ -1,5 +1,4 @@
 // /* --- START - Global variables - DOM elements --- */
-
 // var yearUrl = document.getElementById("select");
 // var contentAll = document.querySelector("#content-all");
 // var contentAllList = document.querySelector("#tabs-container");
@@ -13,11 +12,8 @@
 //   ".subcategory-wrapper"
 // );
 // var subcategoryCheckbox = document.querySelectorAll(".subcategory-checkbox");
-
 // /* --- END - Global variables - DOM elements --- */
-
 // /* --- START - Function declarations --- */
-
 // // wait ms (milliseconds) after user stops typing to execute func
 // const delayKeyUp = (() => {
 //   let timer = null;
@@ -27,18 +23,14 @@
 //   };
 //   return delay;
 // })();
-
 // //remove anchor link hash from URL
 // function removeHashFromUrl() {
 //   var uri = window.location.toString();
-
 //   if (uri.indexOf("#") > 0) {
 //     var clean_uri = uri.substring(0, uri.indexOf("#"));
-
 //     window.history.replaceState({}, document.title, clean_uri);
 //   }
 // }
-
 // //check if there are subcategories for the different categories
 // //if the subcategory wrapper is empty, hide it
 // function hideSubcategoryWrapperIfEmpty() {
@@ -48,7 +40,6 @@
 //     }
 //   });
 // }
-
 // //add active item class to ToC item
 // function addActiveTocClass() {
 //   var anchorLinks = document.querySelectorAll("#toc > .faq-nav-link");
@@ -85,7 +76,6 @@
 //     });
 //   }
 // }
-
 // //Remove all links from table of content sidemenu
 // function removeAllChildren(parent) {
 //   while (parent.lastChild) {
@@ -93,7 +83,6 @@
 //   }
 //   console.log("removed all children");
 // }
-
 // //render all anchor links based on collection item table names
 // //append anchor links to table of content
 // function renderAnchorLinks(contentList) {
@@ -113,7 +102,6 @@
 //       tableOfContent.appendChild(item); // places each item inside the Table of Contents div
 //     });
 // }
-
 // //Render correct anchor links for table of content based on category tab selected
 // //add scroll eventlistener to these links which creates the 'active table of content link' effect
 // function getActiveCategoryTab() {
@@ -175,11 +163,8 @@
 //       break;
 //   }
 // }
-
 // /* --- END - Function declarations --- */
-
 // /* --- START - DOM EventListeners --- */
-
 // //Listen for changes in the YEAR dropdown
 // //attach year to URL
 // yearUrl.addEventListener("change", (event) => {
@@ -189,7 +174,6 @@
 //   } else if (yearUrl.value === "all") {
 //     yearDropdownPlaceholder.innerText = "Alle jaren";
 //   }
-
 //   url.searchParams.has("year")
 //     ? url.searchParams.set("year", event.target.value)
 //     : url.searchParams.append("year", event.target.value);
@@ -198,7 +182,6 @@
 //   // append into URL without reloading the page
 //   history.pushState({}, null, url);
 // });
-
 // //listen to category dropdown and if an item is clicked, run getActiveCategoryTab()
 // //The timeout is essential for this to work, because the dom takes a fraction of a second to update
 // categorySelectOption.forEach((tabLink) => {
@@ -209,7 +192,6 @@
 //     }, 50); //in ms
 //   });
 // });
-
 // //listen to changes in the searchbar and updates table of content
 // //The timeout is essential for this to work, because the dom takes a fraction of a second to update
 // searchBarInputField.forEach((searchbar) => {
@@ -223,7 +205,6 @@
 //     }, 400);
 //   });
 // });
-
 // //listen to subcategory checkbox clicks and re-render table of content anchor links
 // subcategoryCheckbox.forEach((checkbox) => {
 //   checkbox.addEventListener("click", () => {
@@ -233,7 +214,6 @@
 //     }, 400);
 //   });
 // });
-
 // //Check for active category tab on load, render correct table of content links
 // //hide subcategory wrappers if they are empty
 // window.addEventListener("load", () => {
@@ -242,3 +222,4 @@
 //   console.log("Dom loaded");
 // });
 // /* --- END - DOM EventListeners --- */
+//# sourceMappingURL=index.js.map

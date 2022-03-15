@@ -1,28 +1,21 @@
 (() => {
-  var e = document.getElementById("language-switch"),
+  var e = document.getElementById("select"),
     t = document.querySelector("#toc"),
     n = document.querySelectorAll(".search_field"),
     o = document.getElementById("category-select"),
     l = document.querySelector("[search-tool='reset']"),
     c = document.querySelector("#submit-button"),
-    i = document.getElementById("filter-initial"),
-    s = document.getElementById("toc-container"),
-    d = document.getElementById("filter-empty"),
-    r = document.getElementById("toc-wrapper");
-  const a = (() => {
+    s = document.getElementById("filter-initial"),
+    a = document.getElementById("toc-container"),
+    r = document.getElementById("filter-empty"),
+    i = document.getElementById("toc-wrapper");
+  const d = (() => {
     let e = null;
     return (t, n) => {
       e && clearTimeout(e), (e = setTimeout(t, n));
     };
   })();
   function u() {
-    var e = window.location.toString();
-    if (e.indexOf("#") > 0) {
-      var t = e.substring(0, e.indexOf("#"));
-      window.history.replaceState({}, document.title, t);
-    }
-  }
-  function m() {
     var e = document.querySelectorAll("#toc > .faq-nav-link"),
       t = document.querySelectorAll(".dynamic-table"),
       n = "";
@@ -31,9 +24,9 @@
       t.forEach((t) => {
         const l = t.offsetTop,
           c = t.getBoundingClientRect().top,
-          i = t.offsetHeight;
+          s = t.offsetHeight;
         scrollY - 600 >= l + c &&
-          scrollY - 650 <= l + i &&
+          scrollY - 650 <= l + s &&
           ((n = t.getAttribute("id")), (o = `#${n}`)),
           e.length > 0 &&
             o &&
@@ -41,8 +34,8 @@
               e.getAttribute("href") === o
                 ? e.classList.contains("w--current") ||
                   (e.classList.add("w--current"),
-                  a(() => {
-                    r.scrollTop = e.offsetTop - r.offsetTop;
+                  d(() => {
+                    i.scrollTop = e.offsetTop - i.offsetTop;
                   }, 100))
                 : e.getAttribute("href") !== o &&
                   e.classList.contains("w--current") &&
@@ -50,14 +43,14 @@
             });
       });
   }
-  function f() {
-    "none" === window.getComputedStyle(i).display &&
-    "none" === window.getComputedStyle(d).display
-      ? s.classList.contains("show-sidebar") || s.classList.add("show-sidebar")
-      : ("block" !== window.getComputedStyle(i).display &&
-          "block" !== window.getComputedStyle(d).display) ||
-        (s.classList.contains("show-sidebar") &&
-          s.classList.remove("show-sidebar")),
+  function m() {
+    "none" === window.getComputedStyle(s).display &&
+    "none" === window.getComputedStyle(r).display
+      ? a.classList.contains("show-sidebar") || a.classList.add("show-sidebar")
+      : ("block" !== window.getComputedStyle(s).display &&
+          "block" !== window.getComputedStyle(r).display) ||
+        (a.classList.contains("show-sidebar") &&
+          a.classList.remove("show-sidebar")),
       (function () {
         for (; t.lastChild; ) t.removeChild(t.lastChild);
       })(),
@@ -74,24 +67,33 @@
               e.classList.add("class", "hidden"),
               t.appendChild(o);
           }),
-          window.addEventListener("scroll", m);
+          window.addEventListener("scroll", u);
       }, 200),
       (function (e) {
         let t = document.getElementById("searchbar");
-        a(() => {
+        d(() => {
           t.focus();
         }, 500);
       })();
   }
-  n.forEach((e) => {
-    e.addEventListener("keyup", (e) => {
-      13 === e.keyCode &&
-        (e.preventDefault(),
-        a(() => {
-          f();
-        }, 500));
-    });
+  e.addEventListener("change", (e) => {
+    var t = new URL(window.location);
+    t.searchParams.has("year")
+      ? t.searchParams.set("year", e.target.value)
+      : t.searchParams.append("year", e.target.value),
+      (t.search = t.searchParams),
+      (t = t.toString()),
+      history.pushState({}, null, t);
   }),
+    n.forEach((e) => {
+      e.addEventListener("keyup", (e) => {
+        13 === e.keyCode &&
+          (e.preventDefault(),
+          d(() => {
+            m();
+          }, 500));
+      });
+    }),
     l.addEventListener("click", () => {
       document
         .querySelectorAll("[fs-cmsfilter-element='reset']")
@@ -101,25 +103,24 @@
         n.forEach((e) => {
           "" !== e.value && (e.value = "");
         }),
-        u(),
-        a(() => {
-          f();
+        (function () {
+          var e = window.location.toString();
+          if (e.indexOf("#") > 0) {
+            var t = e.substring(0, e.indexOf("#"));
+            window.history.replaceState({}, document.title, t);
+          }
+        })(),
+        d(() => {
+          m();
         }, 500);
     }),
-    e.addEventListener("click", () => {
-      a(() => {
-        f();
-      }, 100);
-    }),
     window.addEventListener("load", () => {
-      f(),
+      m(),
         o.addEventListener("change", () => {
-          u(),
-            c.click(),
-            a(() => {
-              f();
+          c.click(),
+            d(() => {
+              m();
             }, 500);
         });
     });
 })();
-//# sourceMappingURL=bundle.js.map
