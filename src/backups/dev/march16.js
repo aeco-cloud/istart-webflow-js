@@ -1,5 +1,3 @@
-const iframeResizer = require("iframe-resizer");
-
 /* --- START - Global variables - DOM elements --- */
 const STANDARD_YEAR_VALUE = "2022";
 var languageSwitch = document.getElementById("language-switch");
@@ -56,18 +54,6 @@ function removeHashFromUrl() {
 
     window.history.replaceState({}, document.title, clean_uri);
   }
-}
-
-function renderIframes(array) {
-  let filteredIds = [...new Set(array)];
-  // console.log(filteredIds);
-  setDelay(() => {
-    filteredIds.forEach((id) => {
-      let section = document.getElementById(`${id}-section`);
-      let iframe = section.querySelector("iframe");
-      console.log(iframe.src);
-    });
-  }, 500);
 }
 
 //add active item class to ToC item and scroll ToC item into view with scrolling
@@ -129,7 +115,6 @@ function setFocusSearchBar(searchbar) {
   }, 500);
 }
 
-let allSections = [];
 //render all anchor links based on collection item table names
 //append anchor links to table of content
 function renderAnchorLinks() {
@@ -141,7 +126,6 @@ function renderAnchorLinks() {
       heading
         .closest(".dynamic-table")
         .setAttribute("id", `${heading.id}-section`);
-      allSections.push(heading.id);
       const item = document.createElement("a"); // creates an anchor element called "item" for each h2
       item.innerHTML = heading.innerHTML; // gives each item the text of the corresponding heading
       item.classList.add("faq-nav-link"); // gives each item the correct class
@@ -149,8 +133,7 @@ function renderAnchorLinks() {
       heading.classList.add("class", "hidden"); //hides all headings from view
       tableOfContent.appendChild(item); // places each item inside the Table of Contents div
     });
-  console.log(allSections);
-  renderIframes(allSections);
+  // console.log("anchor links rendered");
 }
 
 //invoke functions in the correct order
