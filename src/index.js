@@ -1,19 +1,21 @@
-console.log("local webflow server connected!!!");
+const { default: index } = require("./pages");
+const { default: all } = require("./pages/all");
+const { default: dashboardHome } = require("./pages/dashboard/home");
 
-window.dataLayer = window.dataLayer || [];
-function gtag() {
-  dataLayer.push(arguments);
+// indication to see if the webflow server is connected
+console.log("local webflow server connected!");
+
+// get the current path. Based on this path we execute different functions
+const currentPath = window.location.pathname;
+
+
+// code to run on all pages
+all()
+
+if (currentPath === "/") {
+  index();
 }
 
-// let gaSessionId = "";
-(async () => {
-  const gaSessionId = await new Promise((resolve) => {
-    gtag("get", "G-18ZZXF30B4", "session_id", resolve);
-  });
-  const glideSessionId = Date.now() * Math.floor(Math.random() * 100);
-
-  const src = `https://app.istart.be?glideSessionId=${glideSessionId}&gaSessionId=${gaSessionId}`;
-
-  console.log("src for iframe: ", src);
-  top.document.getElementById("myiframe").setAttribute("src", src);
-})();
+if (currentPath === "/dashboard/home") {
+  dashboardHome();
+}

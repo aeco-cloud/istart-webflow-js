@@ -10,4 +10,4 @@ This is a basic setup for developing JavaScript and TypeScript inside of Webflow
 
 # Production
 
-Build the production JavaScript ```npm run build``` and paste the scripts in the pages where you would like to use them.
+Build the production JavaScript ```npm run build``` and paste bundle.js script inside of the webflow custom code
