@@ -26,14 +26,12 @@ export default function checkForPartenaCookieAndShowLogo() {
       url.searchParams.get("utm_source") === "partena" ||
       sociaalSecretariaatCookie === "partena"
     ) {
-      console.log("Success! cookie: " + sociaalSecretariaatCookie);
       partenaLogo.classList.remove("hidden");
     } else {
-      console.log("No partena");
+      // no partena cookie present
     }
   }
   document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("Dom loaded");
     checkCookie();
   });
 }

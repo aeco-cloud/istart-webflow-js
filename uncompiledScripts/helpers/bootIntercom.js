@@ -4,10 +4,8 @@ export default function bootIntercom(environment) {
 
   let app_id = "";
   if (environment === "develop" || environment === "local") {
-    console.log("using develop intercom");
     app_id = intercomDevSrc;
   } else {
-    console.log("using production intercom");
     app_id = intercomProdSrc;
   }
   window.intercomSettings = {
