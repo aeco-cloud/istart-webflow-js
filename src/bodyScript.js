@@ -3,7 +3,7 @@ const { default: all } = require("./pages/all");
 const { default: dashboardHome } = require("./pages/dashboard/home");
 
 // indication to see if the webflow server is connected
-console.log("local webflow server connected!");
+console.log("istart-webflow-js script connected!");
 
 // get the current path. Based on this path we execute different functions
 const currentPath = window.location.pathname;
