@@ -5,9 +5,9 @@ This is a basic setup for developing JavaScript and TypeScript inside of Webflow
 # Development
 
 1. Install packages ```npm install```
-2. Place this script tag in your Webflow Site. ```<script src="http://localhost:8080/bundle.js" type="text/javascript" crossorigin="anonymous"></script>``` 
+2. Place this script tag in your Webflow Site. ```<script src="http://localhost:8080/bundle.js" type="text/javascript" crossorigin="anonymous"></script>``` -> see the webflow custom code section to see how this is implemented
 3. Run the webpack dev server ```npm run serve```
 
 # Production
 
-Build the production bodyScript by running ```npm run build``` and push the code on the main branch. The code is linked with the webflow website through the publicly hosted githubpages url `https://aeco-cloud.github.io/istart-webflow-js/dist/bundle.js`
+Build the production bodyScript by running ```npm run build``` and push the code on the main branch. The code is linked with the webflow website through the publicly hosted githubpages url `https://aeco-cloud.github.io/istart-webflow-js/webflow/bodyScript.js`

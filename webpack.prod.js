@@ -1,6 +1,4 @@
-const { merge } = require("webpack-merge");
 const path = require("path");
-const common = require("./webpack.common.js");
 
 module.exports = {
   entry: "./src/bodyScript.js",
@@ -18,7 +16,7 @@ module.exports = {
   },
   output: {
     filename: "bodyScript.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "webflow"),
   },
   devtool: "source-map",
   mode: "production",

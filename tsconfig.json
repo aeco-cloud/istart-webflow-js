@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "outDir": "./dist/",
+      "outDir": "webflow",
      "sourceMap": true,
       "noImplicitAny": true,
       "module": "commonjs",
