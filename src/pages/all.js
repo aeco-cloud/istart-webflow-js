@@ -1,5 +1,7 @@
 // this code will run on all pages
 export default function all() {
+  console.log("hello from github pages")
+
   // initiate gtag in order to make it accessible
   window.dataLayer = window.dataLayer || [];
   function gtag() {

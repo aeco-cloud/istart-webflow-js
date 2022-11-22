@@ -8,9 +8,8 @@ console.log("local webflow server connected!");
 // get the current path. Based on this path we execute different functions
 const currentPath = window.location.pathname;
 
-
 // code to run on all pages
-all()
+all();
 
 if (currentPath === "/") {
   index();
@@ -19,3 +18,4 @@ if (currentPath === "/") {
 if (currentPath === "/dashboard/home") {
   dashboardHome();
 }
+
