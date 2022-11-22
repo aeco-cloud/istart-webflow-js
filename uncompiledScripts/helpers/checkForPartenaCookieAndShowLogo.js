@@ -1,13 +1,4 @@
-// this code will run on all pages
-export default function all() {
-  console.log("hello from github pages")
-
-  // initiate gtag in order to make it accessible
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-
+export default function checkForPartenaCookieAndShowLogo() {
   //Checking for utm_sociaal_secretariaat = partena
   //if it exists, show logo (standard), else add class hidden to logo
   var partenaLogo = document.getElementById("partena-logo");

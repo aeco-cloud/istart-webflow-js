@@ -17,3 +17,7 @@ Build the production bodyScript by running `npm run build` and push the code on 
 - `webflow/bodyScript.js` contains the code that is loaded in the code before </body> tag on webflow. Depending on the domain `local.istart.be`, `develop.istart.be`, `www.istart.be` the code is loaded from the local server or the deployed github pages. **The bodyScript.js should be build after making changes by running the `npm run build` command!**
 - `webflow/headScript.js` contains the code that is loaded at the end of the <head> tag in webflow by referencing the `https://aeco-cloud.github.io/istart-webflow-js/webflow/headScript.js` url
 - `webflow/headScript.js` contains the styles that is loaded at the end of the <head> tag in webflow by referencing the `https://aeco-cloud.github.io/istart-webflow-js/webflow/headStyle.css` url
+- `src/`contains all the code that is compiled into the `bodyScript.js`
+
+
+Visit https://webflow.com/dashboard/sites/istart-develop/code to see how this is implemented in webflow

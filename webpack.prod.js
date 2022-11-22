@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/bodyScript.js",
+  entry: "./uncompiledScripts/bodyScript.js",
   module: {
     rules: [
       {

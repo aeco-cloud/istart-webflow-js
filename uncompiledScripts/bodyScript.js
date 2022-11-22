@@ -1,9 +1,13 @@
-const { default: index } = require("./pages");
+const { default: index } = require("./pages/home");
 const { default: all } = require("./pages/all");
-const { default: dashboardHome } = require("./pages/dashboard/home");
+const { default: dashboardHome } = require("./pages/dashboard");
+const { default: getEnvironment } = require("./helpers/getEnvironment");
 
 // indication to see if the webflow server is connected
 console.log("istart-webflow-js script connected!");
+
+const environment = getEnvironment();
+console.log("running in the environment: ", environment);
 
 // get the current path. Based on this path we execute different functions
 const currentPath = window.location.pathname;
@@ -18,4 +22,3 @@ if (currentPath === "/") {
 if (currentPath === "/dashboard/home") {
   dashboardHome();
 }
-
