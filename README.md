@@ -10,4 +10,4 @@ This is a basic setup for developing JavaScript and TypeScript inside of Webflow
 
 # Production
 
-Build the production JavaScript ```npm run build``` and push the code on the main branch. The code is linked with the webflow website through the publicly hosted githubpages url `https://aeco-cloud.github.io/istart-webflow-js/dist/bundle.js`
+Build the production bodyScript by running ```npm run build``` and push the code on the main branch. The code is linked with the webflow website through the publicly hosted githubpages url `https://aeco-cloud.github.io/istart-webflow-js/dist/bundle.js`
