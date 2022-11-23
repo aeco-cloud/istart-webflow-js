@@ -46,5 +46,5 @@ export default function bootIntercom(environment) {
     }
   };
 
-  setTimeout(startIntercom, 4 * 1000);
+  setTimeout(startIntercom, 2 * 1000);
 }

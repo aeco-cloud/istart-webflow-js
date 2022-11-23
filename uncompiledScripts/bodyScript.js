@@ -6,9 +6,6 @@ const { default: getEnvironment } = require("./helpers/getEnvironment");
 // indication to see if the webflow server is connected
 console.log("istart-webflow-js script connected!");
 
-const environment = getEnvironment();
-console.log("running in the environment: ", environment);
-
 // get the current path. Based on this path we execute different functions
 const currentPath = window.location.pathname;
 

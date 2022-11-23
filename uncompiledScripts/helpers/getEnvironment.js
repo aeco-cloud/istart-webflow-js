@@ -1,8 +1,6 @@
 export default function getEnvironment() {
   const regex = new RegExp(/(?:http[s]*\:\/\/)*(.*?)\.(?=[^\/]*\..{2,5})/i);
-
   const subdomain = regex.exec(window.location.href)[0];
-  console.log("subdomain: ", subdomain)
 
   let environment = "production";
   if (subdomain.includes("local")) {
