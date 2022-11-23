@@ -16,7 +16,7 @@ module.exports = {
   },
   output: {
     filename: "bodyScript.js",
-    path: path.resolve(__dirname, "webflow"),
+    path: path.resolve(__dirname, "scriptsReadyForWebflow"),
   },
   devtool: "source-map",
   mode: "production",

@@ -1,7 +1,23 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common.js");
+const path = require("path");
 
-module.exports = merge(common, {
+module.exports = {
+  entry: "./uncompiledScripts/bodyScript.js",
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "compiledWebflowScripts"),
+  },
   devtool: "inline-source-map",
   mode: "development",
   devServer: {
@@ -13,4 +29,4 @@ module.exports = merge(common, {
         "X-Requested-With, content-type, Authorization",
     },
   },
-});
+};
