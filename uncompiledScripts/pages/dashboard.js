@@ -9,6 +9,8 @@ export default function dashboardHome() {
       gtag("get", "G-18ZZXF30B4", "session_id", resolve);
     });
 
+    console.log("gaSessionId: ", gaSessionId)
+
     // create the glideSessionId
     const glideSessionId = Date.now() * Math.floor(Math.random() * 100);
 
@@ -18,3 +20,4 @@ export default function dashboardHome() {
     top.document.getElementById("myiframe").setAttribute("src", src);
   })();
 }
+

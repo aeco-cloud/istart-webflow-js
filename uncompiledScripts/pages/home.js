@@ -1,3 +1,6 @@
-export default function index(){
-  console.log("hello from JS on the istart homepage")
+import gaClickEvent from "../events/gaClickEvent";
+
+export default function home() {
+  gaClickEvent("lightbulb-image", "lightbulb_image_click")
+
 }
